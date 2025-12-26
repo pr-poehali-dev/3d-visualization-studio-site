@@ -55,6 +55,7 @@ const projects = [
 export default function Index() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -127,24 +128,37 @@ export default function Index() {
                 className="border-b border-border last:border-b-0"
               >
                 <div
-                  className="group relative bg-background cursor-pointer overflow-hidden"
-                  onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                  className="group relative bg-background overflow-hidden"
                   onMouseEnter={() => setSelectedProject(project.id)}
                   onMouseLeave={() => setSelectedProject(null)}
                 >
                   <div className="grid lg:grid-cols-2 gap-0">
-                    <div className="aspect-[4/3] overflow-hidden">
+                    <div 
+                      className="aspect-[4/3] overflow-hidden cursor-pointer relative group/image"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setFullscreenImage(project.image);
+                      }}
+                    >
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-all duration-700 group-hover/image:scale-105"
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3">
+                          <Icon name="Expand" size={24} className="text-foreground" />
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="flex flex-col justify-center p-8 lg:p-12">
+                    <div 
+                      className="flex flex-col justify-center p-8 lg:p-12 cursor-pointer"
+                      onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                    >
                       <p className="text-xs tracking-widest mb-3 text-muted-foreground">{project.category} / {project.year}</p>
                       <h3 className="text-3xl md:text-4xl font-light tracking-tight mb-4">{project.title}</h3>
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
                         <span>Посмотреть детали</span>
                         <Icon 
                           name={expandedProject === project.id ? "ChevronUp" : "ChevronDown"} 
@@ -295,6 +309,26 @@ export default function Index() {
           </div>
         </div>
       </section>
+
+      {fullscreenImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setFullscreenImage(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white hover:text-muted-foreground transition-colors z-10"
+            onClick={() => setFullscreenImage(null)}
+          >
+            <Icon name="X" size={32} />
+          </button>
+          <img
+            src={fullscreenImage}
+            alt="Полноэкранное изображение"
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
       <footer className="py-8 px-6 lg:px-12 border-t border-border">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-light">
