@@ -7,47 +7,54 @@ const projects = [
     title: 'Альпийская резиденция',
     category: 'Архитектура',
     year: '2024',
-    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/98f7cd72-0e5d-4c40-96de-6ac848f1c3e0.jpg'
+    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/98f7cd72-0e5d-4c40-96de-6ac848f1c3e0.jpg',
+    description: 'Современный загородный дом в альпийском стиле площадью 450 м². Проект сочетает классическую архитектуру с современными материалами и технологиями. Большие панорамные окна открывают вид на горы, а использование натурального дерева и камня создаёт ощущение единения с природой.'
   },
   {
     id: 2,
     title: 'Минималистичный интерьер',
     category: 'Дизайн интерьера',
     year: '2024',
-    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/d2c8c74a-71aa-4db0-9e82-7dd08924e12d.jpg'
+    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/d2c8c74a-71aa-4db0-9e82-7dd08924e12d.jpg',
+    description: 'Интерьер квартиры 120 м² в стиле японского минимализма. Чистые линии, нейтральная цветовая палитра и продуманное освещение создают пространство для спокойствия и концентрации. Каждая деталь имеет своё функциональное назначение.'
   },
   {
     id: 3,
     title: 'Городской комплекс',
     category: 'Архитектура',
     year: '2023',
-    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/87201655-08fd-4005-86b0-9f9217c99ac4.jpg'
+    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/87201655-08fd-4005-86b0-9f9217c99ac4.jpg',
+    description: 'Многофункциональный жилой комплекс в центре города. 15 этажей современной архитектуры с коммерческими помещениями на первом этаже, офисами на втором и жилыми квартирами выше. Общая площадь — 25 000 м².'
   },
   {
     id: 4,
     title: 'Бетонный дом',
     category: 'Архитектура',
     year: '2023',
-    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/98f7cd72-0e5d-4c40-96de-6ac848f1c3e0.jpg'
+    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/98f7cd72-0e5d-4c40-96de-6ac848f1c3e0.jpg',
+    description: 'Экспериментальный проект частного дома из монолитного бетона. Брутальная архитектура подчёркивает фактуру материала. Внутренняя планировка максимально открыта — свободное пространство 300 м² практически без перегородок.'
   },
   {
     id: 5,
     title: 'Свет и пространство',
     category: 'Дизайн интерьера',
     year: '2023',
-    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/d2c8c74a-71aa-4db0-9e82-7dd08924e12d.jpg'
+    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/d2c8c74a-71aa-4db0-9e82-7dd08924e12d.jpg',
+    description: 'Просторная квартира-студия 85 м² с высокими потолками. Светлые тона, скрытая подсветка и зеркальные поверхности визуально увеличивают пространство. Мебель на заказ идеально вписывается в концепцию лёгкости и воздушности.'
   },
   {
     id: 6,
     title: 'Стеклянный павильон',
     category: 'Архитектура',
     year: '2022',
-    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/87201655-08fd-4005-86b0-9f9217c99ac4.jpg'
+    image: 'https://cdn.poehali.dev/projects/43dd994e-7acb-42c5-9187-b396d5169732/files/87201655-08fd-4005-86b0-9f9217c99ac4.jpg',
+    description: 'Выставочный павильон площадью 600 м² с полностью остеклённым фасадом. Минималистичная металлическая конструкция создаёт ощущение невесомости. Проект получил премию за инновационное использование светопрозрачных конструкций.'
   }
 ];
 
 export default function Index() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -113,29 +120,51 @@ export default function Index() {
             <p className="text-muted-foreground font-light">2022 — 2024</p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border">
+          <div className="space-y-0">
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="group relative bg-background cursor-pointer overflow-hidden aspect-[4/3]"
-                onMouseEnter={() => setSelectedProject(project.id)}
-                onMouseLeave={() => setSelectedProject(null)}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="border-b border-border last:border-b-0"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                />
+                <div
+                  className="group relative bg-background cursor-pointer overflow-hidden"
+                  onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                  onMouseEnter={() => setSelectedProject(project.id)}
+                  onMouseLeave={() => setSelectedProject(null)}
+                >
+                  <div className="grid lg:grid-cols-2 gap-0">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                      />
+                    </div>
 
-                <div className={`absolute inset-0 bg-black/60 transition-opacity duration-500 ${
-                  selectedProject === project.id ? 'opacity-100' : 'opacity-0'
-                }`}>
-                  <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <p className="text-xs tracking-widest mb-2 opacity-80">{project.category} / {project.year}</p>
-                    <h3 className="text-2xl md:text-3xl font-light tracking-tight">{project.title}</h3>
+                    <div className="flex flex-col justify-center p-8 lg:p-12">
+                      <p className="text-xs tracking-widest mb-3 text-muted-foreground">{project.category} / {project.year}</p>
+                      <h3 className="text-3xl md:text-4xl font-light tracking-tight mb-4">{project.title}</h3>
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                        <span>Посмотреть детали</span>
+                        <Icon 
+                          name={expandedProject === project.id ? "ChevronUp" : "ChevronDown"} 
+                          size={20}
+                          className="transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+                {expandedProject === project.id && (
+                  <div className="bg-muted animate-fade-in">
+                    <div className="container mx-auto px-8 lg:px-12 py-12 max-w-4xl">
+                      <p className="text-lg font-light leading-relaxed text-muted-foreground">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
