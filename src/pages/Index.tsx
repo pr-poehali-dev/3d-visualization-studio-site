@@ -4,50 +4,64 @@ import Icon from '@/components/ui/icon';
 const projects = [
   {
     id: 1,
-    title: 'Альпийская резиденция',
+    title: 'Краснолесье',
     category: 'Архитектура',
     year: '2024',
-    image: 'https://cdn.poehali.dev/files/c_003 copy.jpg',
-    description: 'Современный загородный дом в альпийском стиле площадью 450 м². Проект сочетает классическую архитектуру с современными материалами и технологиями. Большие панорамные окна открывают вид на горы, а использование натурального дерева и камня создаёт ощущение единения с природой.'
+    images: [
+      'https://cdn.poehali.dev/files/c_03_post copy.jpg',
+      'https://cdn.poehali.dev/files/с_008_post copy.jpg',
+      'https://cdn.poehali.dev/files/c_05_post_AI copy.jpg',
+      'https://cdn.poehali.dev/files/c_005_Post_AI copy.jpg',
+      'https://cdn.poehali.dev/files/01_22_AI copy.jpg'
+    ],
+    description: 'Жилой комплекс в средиземноморском стиле с каменными домами, белыми фасадами и терракотовыми крышами. Уютные дворы с фонтанами, башня-колокольня как центральная композиция, озеленённые террасы и панорамные виды на горы и лес.'
   },
   {
     id: 2,
-    title: 'Минималистичный интерьер',
-    category: 'Дизайн интерьера',
+    title: 'Альпийская резиденция',
+    category: 'Архитектура',
     year: '2024',
-    image: 'https://cdn.poehali.dev/files/c_002 copy.jpg',
-    description: 'Интерьер квартиры 120 м² в стиле японского минимализма. Чистые линии, нейтральная цветовая палитра и продуманное освещение создают пространство для спокойствия и концентрации. Каждая деталь имеет своё функциональное назначение.'
+    images: ['https://cdn.poehali.dev/files/c_003 copy.jpg'],
+    description: 'Современный загородный дом в альпийском стиле площадью 450 м². Проект сочетает классическую архитектуру с современными материалами и технологиями. Большие панорамные окна открывают вид на горы, а использование натурального дерева и камня создаёт ощущение единения с природой.'
   },
   {
     id: 3,
-    title: 'Городской комплекс',
-    category: 'Архитектура',
-    year: '2023',
-    image: 'https://cdn.poehali.dev/files/c_001 copy.jpg',
-    description: 'Многофункциональный жилой комплекс в центре города. 15 этажей современной архитектуры с коммерческими помещениями на первом этаже, офисами на втором и жилыми квартирами выше. Общая площадь — 25 000 м².'
+    title: 'Минималистичный интерьер',
+    category: 'Дизайн интерьера',
+    year: '2024',
+    images: ['https://cdn.poehali.dev/files/c_002 copy.jpg'],
+    description: 'Интерьер квартиры 120 м² в стиле японского минимализма. Чистые линии, нейтральная цветовая палитра и продуманное освещение создают пространство для спокойствия и концентрации. Каждая деталь имеет своё функциональное назначение.'
   },
   {
     id: 4,
-    title: 'Бетонный дом',
+    title: 'Городской комплекс',
     category: 'Архитектура',
     year: '2023',
-    image: 'https://cdn.poehali.dev/files/c_005 copy.jpg',
-    description: 'Экспериментальный проект частного дома из монолитного бетона. Брутальная архитектура подчёркивает фактуру материала. Внутренняя планировка максимально открыта — свободное пространство 300 м² практически без перегородок.'
+    images: ['https://cdn.poehali.dev/files/c_001 copy.jpg'],
+    description: 'Многофункциональный жилой комплекс в центре города. 15 этажей современной архитектуры с коммерческими помещениями на первом этаже, офисами на втором и жилыми квартирами выше. Общая площадь — 25 000 м².'
   },
   {
     id: 5,
-    title: 'Свет и пространство',
-    category: 'Дизайн интерьера',
+    title: 'Бетонный дом',
+    category: 'Архитектура',
     year: '2023',
-    image: 'https://cdn.poehali.dev/files/c_006 copy.jpg',
-    description: 'Просторная квартира-студия 85 м² с высокими потолками. Светлые тона, скрытая подсветка и зеркальные поверхности визуально увеличивают пространство. Мебель на заказ идеально вписывается в концепцию лёгкости и воздушности.'
+    images: ['https://cdn.poehali.dev/files/c_005 copy.jpg'],
+    description: 'Экспериментальный проект частного дома из монолитного бетона. Брутальная архитектура подчёркивает фактуру материала. Внутренняя планировка максимально открыта — свободное пространство 300 м² практически без перегородок.'
   },
   {
     id: 6,
+    title: 'Свет и пространство',
+    category: 'Дизайн интерьера',
+    year: '2023',
+    images: ['https://cdn.poehali.dev/files/c_006 copy.jpg'],
+    description: 'Просторная квартира-студия 85 м² с высокими потолками. Светлые тона, скрытая подсветка и зеркальные поверхности визуально увеличивают пространство. Мебель на заказ идеально вписывается в концепцию лёгкости и воздушности.'
+  },
+  {
+    id: 7,
     title: 'Стеклянный павильон',
     category: 'Архитектура',
     year: '2022',
-    image: 'https://cdn.poehali.dev/files/c_001 copy.jpg',
+    images: ['https://cdn.poehali.dev/files/c_001 copy.jpg'],
     description: 'Выставочный павильон площадью 600 м² с полностью остеклённым фасадом. Минималистичная металлическая конструкция создаёт ощущение невесомости. Проект получил премию за инновационное использование светопрозрачных конструкций.'
   }
 ];
@@ -56,6 +70,7 @@ export default function Index() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -137,11 +152,12 @@ export default function Index() {
                       className="aspect-[4/3] overflow-hidden cursor-pointer relative group/image"
                       onClick={(e) => {
                         e.stopPropagation();
-                        setFullscreenImage(project.image);
+                        setFullscreenImage(project.images[0]);
+                        setCurrentImageIndex(0);
                       }}
                     >
                       <img
-                        src={project.image}
+                        src={project.images[0]}
                         alt={project.title}
                         className="w-full h-full object-cover transition-all duration-700 group-hover/image:scale-105"
                       />
@@ -150,6 +166,11 @@ export default function Index() {
                           <Icon name="Expand" size={24} className="text-foreground" />
                         </div>
                       </div>
+                      {project.images.length > 1 && (
+                        <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                          {project.images.length} фото
+                        </div>
+                      )}
                     </div>
 
                     <div 
@@ -310,25 +331,72 @@ export default function Index() {
         </div>
       </section>
 
-      {fullscreenImage && (
-        <div 
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setFullscreenImage(null)}
-        >
-          <button
-            className="absolute top-6 right-6 text-white hover:text-muted-foreground transition-colors z-10"
+      {fullscreenImage && (() => {
+        const currentProject = projects.find(p => p.images.includes(fullscreenImage));
+        if (!currentProject) return null;
+        
+        const currentIndex = currentProject.images.indexOf(fullscreenImage);
+        const hasMultiple = currentProject.images.length > 1;
+        
+        const nextImage = () => {
+          const newIndex = (currentIndex + 1) % currentProject.images.length;
+          setFullscreenImage(currentProject.images[newIndex]);
+        };
+        
+        const prevImage = () => {
+          const newIndex = (currentIndex - 1 + currentProject.images.length) % currentProject.images.length;
+          setFullscreenImage(currentProject.images[newIndex]);
+        };
+        
+        return (
+          <div 
+            className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 animate-fade-in"
             onClick={() => setFullscreenImage(null)}
           >
-            <Icon name="X" size={32} />
-          </button>
-          <img
-            src={fullscreenImage}
-            alt="Полноэкранное изображение"
-            className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
-        </div>
-      )}
+            <button
+              className="absolute top-6 right-6 text-white hover:text-muted-foreground transition-colors z-10"
+              onClick={() => setFullscreenImage(null)}
+            >
+              <Icon name="X" size={32} />
+            </button>
+            
+            {hasMultiple && (
+              <>
+                <button
+                  className="absolute left-6 top-1/2 -translate-y-1/2 text-white hover:text-muted-foreground transition-colors z-10 bg-black/50 rounded-full p-4"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevImage();
+                  }}
+                >
+                  <Icon name="ChevronLeft" size={32} />
+                </button>
+                
+                <button
+                  className="absolute right-6 top-1/2 -translate-y-1/2 text-white hover:text-muted-foreground transition-colors z-10 bg-black/50 rounded-full p-4"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextImage();
+                  }}
+                >
+                  <Icon name="ChevronRight" size={32} />
+                </button>
+                
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white bg-black/60 px-4 py-2 rounded-full text-sm z-10">
+                  {currentIndex + 1} / {currentProject.images.length}
+                </div>
+              </>
+            )}
+            
+            <img
+              src={fullscreenImage}
+              alt="Полноэкранное изображение"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        );
+      })()}
 
       <footer className="py-8 px-6 lg:px-12 border-t border-border">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground font-light">
